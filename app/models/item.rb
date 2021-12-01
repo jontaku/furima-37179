@@ -6,12 +6,12 @@ class Item < ApplicationRecord
   belongs_to :category, :condition, :shipping_charge, :prefecture, :shipping_day
 
   validates :price, presence: true, numericality: { only_integer: true, less_than_or_equal_to: 9999999, greater_than_or_equal_to: 300 }
-  with_options presence: true,  do
+  with_options presence: true  do
     validates :item_name
     validates :explanation
     validates :image
   end
-  with_options presence: true, numericality: { other_than: 1 , message: "can't be blank"} do
+  with_options numericality: { other_than: 1 , message: "can't be blank"} do
     validates :category_id
     validates :condition_id
     validates :shipping_charge_id
