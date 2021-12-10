@@ -13,7 +13,7 @@ class OrderAddress
   end
 
   VALID_PHONE_REGEX = /\A\d{10,11}\z/
-    validates :phone_number, presence: true, format: { with: VALID_PHONE_REGEX, message:"is invalid. Input only number" }
+    validates :phone_number, presence: true, format: { with: VALID_PHONE_REGEX, message:"is invalid. Input only number"}
 
   def save
     order = Order.create(item_id: item_id, user_id: user_id, token: token)
